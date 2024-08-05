@@ -1,0 +1,33 @@
+{
+    "name": "Everything is a JoJo reference",
+    "version": "1.0",
+    "description": "Finds a JoJo reference on any given page with text",
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["keywords.json"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["contentScript.js"],
+        "run_at": "document_idle"
+      }
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "action": {
+      "default_icon": "icon.png",
+      "default_title": "JoJo Reference Finder",
+      "default_popup": "popup.html"
+    },
+  "manifest_version": 3
+}
